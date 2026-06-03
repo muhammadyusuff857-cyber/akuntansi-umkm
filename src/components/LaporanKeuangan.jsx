@@ -21,8 +21,8 @@ export default function LaporanKeuangan({ uid }) {
   const potonganPenjualan = get('4-120')
   const penjualanBersih   = penjualan - returPenjualan - potonganPenjualan
 
-  const hargaPokokPenjualan = get('5-100') // Langsung ambil dari akun Harga Pokok Penjualan yang sudah dihitung di Ledger
-  const labaKotor         = penjualanBersih - hargaPokokPenjualan
+  const hpp               = get('5-100') // Langsung ambil dari akun Harga Pokok Penjualan yang sudah dihitung di Ledger
+  const labaKotor         = penjualanBersih - hpp
 
   const bebanPenjualan    = ['6-100','6-110','6-120','6-130','6-140'].reduce((s,k) => s + get(k), 0)
   const bebanUmum         = ['7-100','7-110','7-120','7-130','7-140','7-150','7-160','7-170','7-180','7-190','7-200','7-210'].reduce((s,k) => s + get(k), 0)
@@ -80,11 +80,7 @@ export default function LaporanKeuangan({ uid }) {
 
           <hr className="divider" />
           <SectionTitle label="Harga Pokok Penjualan" />
-          <Row label="Pembelian"                  value={fmt(pembelian)}          indent />
-          <Row label="Beban Angkut Pembelian"     value={fmt(bebanAngkut)}        indent />
-          <Row label="Retur Pembelian"            value={fmt(returPembelian)}     indent neg />
-          <Row label="Potongan Pembelian"         value={fmt(potonganPembelian)}  indent neg />
-          <Row label="Pembelian Bersih / HPP"     value={fmt(hpp)}               subtotal cls="neg" />
+          <Row label="Harga Pokok Penjualan"     value={fmt(hpp)}               indent />
           <Row label="Laba Kotor"                 value={fmt(labaKotor)}         total cls={labaKotor>=0?'pos':'neg'} />
 
           <hr className="divider" />
