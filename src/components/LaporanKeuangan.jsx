@@ -25,7 +25,8 @@ export default function LaporanKeuangan({ uid }) {
   const bebanAngkut       = get('5-110')
   const returPembelian    = get('5-120')
   const potonganPembelian = get('5-130')
-  const pembelianBersih   = pembelian + bebanAngkut - returPembelian - potonganPembelian
+  const hargaPokokPenjualan = get('5-140')
+  const pembelianBersih   = pembelian + bebanAngkut - returPembelian - potonganPembelian - hargaPokokPenjualan
   const hpp               = pembelianBersih // simplified: tanpa persediaan awal/akhir
   const labaKotor         = penjualanBersih - hpp
 
