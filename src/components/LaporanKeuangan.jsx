@@ -21,14 +21,8 @@ export default function LaporanKeuangan({ uid }) {
   const potonganPenjualan = get('4-120')
   const penjualanBersih   = penjualan - returPenjualan - potonganPenjualan
 
-  const pembelian         = get('5-100')
-  const bebanAngkut       = get('5-110')
-  const returPembelian    = get('5-120')
-  const potonganPembelian = get('5-130')
-  const hargaPokokPenjualan = get('5-140')
-  const pembelianBersih   = pembelian + bebanAngkut - returPembelian - potonganPembelian - hargaPokokPenjualan
-  const hpp               = pembelianBersih // simplified: tanpa persediaan awal/akhir
-  const labaKotor         = penjualanBersih - hpp
+  const hargaPokokPenjualan = get('5-100') // Langsung ambil dari akun Harga Pokok Penjualan yang sudah dihitung di Ledger
+  const labaKotor         = penjualanBersih - hargaPokokPenjualan
 
   const bebanPenjualan    = ['6-100','6-110','6-120','6-130','6-140'].reduce((s,k) => s + get(k), 0)
   const bebanUmum         = ['7-100','7-110','7-120','7-130','7-140','7-150','7-160','7-170','7-180','7-190','7-200','7-210'].reduce((s,k) => s + get(k), 0)

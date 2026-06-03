@@ -47,11 +47,7 @@ export const COA = [
   { kode: '4-130', nama: 'Pendapatan Lain-lain',             tipe: 'pendapatan' },
 
   // HPP
-  { kode: '5-100', nama: 'Pembelian',                        tipe: 'beban' },
-  { kode: '5-110', nama: 'Beban Angkut Pembelian',           tipe: 'beban' },
-  { kode: '5-120', nama: 'Retur Pembelian',                  tipe: 'beban' },
-  { kode: '5-130', nama: 'Potongan Pembelian',               tipe: 'beban' },
-  { kode: '5-140', nama: 'Harga Pokok Penjualan',            tipe: 'beban' },
+  { kode: '5-100', nama: 'Harga Pokok Penjualan',            tipe: 'beban' },
 
   // BEBAN OPERASIONAL — PENJUALAN
   { kode: '6-100', nama: 'Beban Gaji Bagian Penjualan',      tipe: 'beban' },
